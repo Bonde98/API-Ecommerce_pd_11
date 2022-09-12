@@ -24,7 +24,7 @@ urlpatterns = [
     path("",include("shop.urls")),
     path("",include("users.urls")),
     path("",include("order.urls")),
-    path("",include("cart.urls")),
+    path("cart",include("cart.urls")),
     #path("",include("send_mail.urls"))
 
 

@@ -45,3 +45,8 @@ class ProductDetail(DetailView):
     model = Product
     context_object_nme = 'product'
     template_name = 'shop/product_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductDetail, self).get_context_data(**kwargs)
+        context["cart_product_form"] = CartAddProductForm()
+        return context

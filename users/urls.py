@@ -3,13 +3,13 @@ from django.urls import path,include
 from django.contrib.auth.views import LogoutView
 from users.views import SignUpView,connexion
 
-#from rest_framework import routers
+from rest_framework import routers
 
-#from users.api import  AdminCustomuserViewset, CustomuserViewset
+from users.api import  AdminCustomuserViewset, CustomuserViewset
 
-#router = routers.SimpleRouter()
-#router.register('users',CustomuserViewset , basename="users")
-#router.register('admin/users',AdminCustomuserViewset, basename="admin-users")
+router = routers.SimpleRouter()
+router.register('users',CustomuserViewset , basename="users")
+router.register('admin/users',AdminCustomuserViewset, basename="admin-users")
 
 
 urlpatterns = [
@@ -18,6 +18,6 @@ urlpatterns = [
     path("connexion/",connexion,name="connexion"),
     path("logout/",LogoutView.as_view(),name="logout"),
     # Les API
-    #path('api/',include(router.urls)),
+    path('api/',include(router.urls)),
 ]
 

@@ -11,9 +11,9 @@
     <!-- <h1></h1> -->
 
     {% for product in products %}
-    {% include "partials/product-card.html" %}
+    {% include "partials/product_card.html" %}
     {% endfor %}
-    
+    <a href="{% url 'cart_detail' %}"> ASs maick</a>
 
     {% else %}
 

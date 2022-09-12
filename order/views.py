@@ -1,4 +1,4 @@
-from http import client
+
 from django.shortcuts import render,redirect
 
 # Create your views here.
@@ -34,8 +34,8 @@ def order_create(request):
             print("Form", form.errors)
     else:
         form = OrderCreateForm()
-    return render(request, "orders/create.html", {"order_cart": cart, "form": form, })
+    return render(request, "order/create.html", {"order_cart": cart, "form": form, })
 
 
 def order_created(request):
-    return render(request, "orders/created.html")
+    return render(request, "order/created.html")

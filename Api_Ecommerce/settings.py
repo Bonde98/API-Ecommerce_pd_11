@@ -43,8 +43,16 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'send_mail.apps.SendMailConfig',
     'order.apps.OrderConfig',
+    'rest_framework',
 
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 3,
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',)
+}
 
 AUTH_USER_MODEL = 'users.CustomUser'
 CART_SESSION_ID = "cart"
@@ -60,6 +68,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+ROOT_URLCONF = 'API_Ecommere.urls'
+LOGIN_REDIRECT_URL = "order_create"
+LOGOUT_REDIRECT_URL = "home"
+
+
 ROOT_URLCONF = 'Api_Ecommerce.urls'
 
 TEMPLATES = [
@@ -73,6 +87,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                  #Ajouter 
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -154,3 +170,6 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Ajouter
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

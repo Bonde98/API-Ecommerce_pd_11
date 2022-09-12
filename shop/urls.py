@@ -1,15 +1,15 @@
 from django.urls import path,include
 
-#from shop.api import CategoryViewset,ProductViewset
+from shop.api import CategoryViewset,ProductViewset
 
 from .views import   index,ProductDetail,ProductList
    
-#from rest_framework import routers
+from rest_framework import routers
    
    
-'''router = routers.SimpleRouter()
+router = routers.SimpleRouter()
 router.register('category',CategoryViewset,basename='category')
-router.register('product',ProductViewset,basename='product')'''
+router.register('product',ProductViewset,basename='product')
 
    
 urlpatterns = [
@@ -23,6 +23,6 @@ urlpatterns = [
          ProductDetail.as_view(), name="product-details"),
     
     # Les API
-    #path('api/',include(router.urls)),
+    path('api/',include(router.urls)),
 
 ]
