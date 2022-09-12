@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+
+{% block contenu %}
+<section>
+  <h1 class="text-center pb-2"> <marquee behavior="" direction="" > La boutique des leaders </marquee> </h1>
+
+  <div class="row container-fluid ">
+
+    {% if products %}
+
+    <!-- <h1></h1> -->
+
+    {% for product in products %}
+    {% include "partials/product-card.html" %}
+    {% endfor %}
+    
+
+    {% else %}
+
+    <p class="text-center">Pas de produits</p>
+
+    {% endif %}
+
+  </div>
+</section>
+
+{% endblock contenu %}

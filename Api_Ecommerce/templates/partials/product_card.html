@@ -1,0 +1,20 @@
+<div class="produit col-3 text-center " width="50px">
+    <div class="card">
+      <a href="{{ product.get_absolute_url }}">
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" >
+      </a>
+      <div class="card-body"  >
+        <h4 class="card-title">{{ product.name }}</h4>
+        <h4 class="card-text" style="color: rgb(93 , 140 , 6);"> {{ product.price }}Fcfa</h4>
+        <p class="card-text">{{ product.description }}</p>
+        <a href="{{ product.get_absolute_url }}" class="btn"> Voire</a> 
+        
+        <form action="{% url 'cart_add' product.id %}" method="post">
+          {% csrf_token %}
+          {{ cart_product_form }}
+          <button type="submit" class="btn btn-primary">Ajouter au panier</button>
+        </form> 
+        
+      </div>
+    </div>
+  </div>
