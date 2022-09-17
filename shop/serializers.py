@@ -11,12 +11,16 @@ class CategorySerializer(ModelSerializer):
         model = Category
         fields = '__all__'
         
-        
-class ProductListtSerializer(ModelSerializer):
+
+
+
+
+class ProductListSerializer(ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
-        
+
+
         
 class ProductdetailSerialiazer(ModelSerializer):
     

@@ -13,7 +13,8 @@ class OrderViewset(ModelViewSet):
         return Order.objects.all()
     
 
-class OrderItemViewset(ReadOnlyModelViewSet):
+class OrderItemViewset(ModelViewSet):
+
     serializer_class = OrderItemSerialaizer
     
     queryset = OrderItem.objects.all()
